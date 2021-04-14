@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 
 import ColorBombs from "./ColorBombs";
-import ModalBombs from "./ModalBombs"
+import ModalBombs from "./ModalBombs";
+import ExtendedArt from "./ExtendedArt";
+import ModalExtendedArt from "./ModalExtendedArt";
 
 const Mvp = (props) => {
   const magicSet = props.thisSet;
@@ -25,6 +27,8 @@ const Mvp = (props) => {
         <ColorBombs color = "wb" title ="Silverquill" changePriceFunction={changeTotalPrice} />
         <ColorBombs color = "gb" title ="Witherbloom" changePriceFunction={changeTotalPrice} />
         <ModalBombs title="Modal Cards" changePriceFunction={changeTotalPrice} />
+        <ExtendedArt title = "Extended Art" changePriceFunction={changeTotalPrice} />
+        <ModalExtendedArt title = "Modal Extended Art" changePriceFunction={changeTotalPrice} />
     </div>
   );
 };

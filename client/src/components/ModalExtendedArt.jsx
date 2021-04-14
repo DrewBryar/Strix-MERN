@@ -2,23 +2,26 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ModalCardCounter from "./ModalCardCounter";
 
-const ModalBombs = (props) => {
-  const apiModalBombs =
-    "http://api.scryfall.com/cards/search?q=is%3Adouble-faced+set%3Astx&unique=cards&as=grid&order=name";
+const ExtendedArt = (props) => {
+  const apiExtendedArt =
+    "http://api.scryfall.com/cards/search?q=set%3Astx+frame%3Aextendedart+is%3Adouble-faced&unique=prints&as=grid&order=set";
   const [cards, setCards] = useState([]);
 
-  // API call
   useEffect(() => {
-    axios.get(apiModalBombs).then((res) => {
+    axios.get(apiExtendedArt).then((res) => {
       setCards(res.data.data);
     });
   }, []);
 
-  const changeTotalPrice = props.changePriceFunction
+  const changeTotalPrice = props.changePriceFunction;
 
   const listCards = cards.map((card) => (
     <div className="col-4">
-      <ModalCardCounter cardData={card} cardName={card.name} changePriceFunction={changeTotalPrice} />
+      <ModalCardCounter
+        cardData={card}
+        cardName={card.name}
+        changePriceFunction={changeTotalPrice}
+      />
     </div>
   ));
 
@@ -34,4 +37,4 @@ const ModalBombs = (props) => {
   );
 };
 
-export default ModalBombs;
+export default ExtendedArt;

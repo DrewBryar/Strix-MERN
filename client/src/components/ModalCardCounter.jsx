@@ -47,7 +47,7 @@ const CardCounter = (props) => {
           <img src={problemBoys[0].image_uris.normal} className="col" />
         </div>
         <div className="row">
-          <div className="col">Price ${props.cardData.prices.usd}</div>
+          <div className="col">Price ${props.cardData.prices.usd ||0}</div>
           <div className="col"></div>
           <div className="col text-center">
             Foil ${parseFloat(props.cardData.prices.usd_foil ||0)}
