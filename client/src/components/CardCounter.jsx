@@ -9,6 +9,7 @@ const CardCounter = (props) => {
   };
   const handleIncrement = () => {
     setCount((prevCount) => prevCount + 1);
+    props.changePriceFunction(props.cardData.prices.usd);
   };
 
   const flipDown = (e) => {

@@ -14,10 +14,12 @@ const ColorBombs = (props) => {
       setCards(res.data.data);
     });
   }, []);
+  
+  const changeTotalPrice = props.changePriceFunction
 
   const listCards = cards.map((card) => (
     <div className="col-3">
-        <CardCounter cardData={card} cardName={card.name} />
+        <CardCounter cardData={card} cardName={card.name} changePriceFunction={changeTotalPrice} />
     </div>
   ));
   
