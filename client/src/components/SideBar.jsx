@@ -8,6 +8,10 @@ const SideBar = (props) => {
             <div className="row">
                 <div className="col">Hi, I'm the Sidebar</div>
             </div>
+            <div className="row">
+                <div className = "col">${props.collectedTotalPrice.toFixed(2)}</div>
+
+            </div>
         </div>
     )
 };
