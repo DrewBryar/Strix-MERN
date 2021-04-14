@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CardCounter from "./CardCounter";
+import {Collapse} from 'react-bootstrap';
 
 const ColorBombs = (props) => {
   const apiColorBombs =
     "https://api.scryfall.com/cards/search?q=color%3D" +
     props.color +
     "+set%3Astx+not%3Adouble-faced+%28rarity%3Au+OR+rarity%3Ar+OR+rarity%3Am%29";
+  
+  
   const [cards, setCards] = useState([]);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     axios.get(apiColorBombs).then((res) => {
@@ -27,12 +31,20 @@ const ColorBombs = (props) => {
     <div className="container">
       <div className="row">
         <div className="col">
-          <h1 className="jumbotron text-center">{props.title}</h1>
+          <h1 className="jumbotron text-center" 
+            onClick={() => setOpen(!open)}
+            aria-controls="cardSection"
+            aria-expanded={open} 
+          >
+            {props.title}
+          </h1>
         </div>
       </div>
-      <div className="row">
-        {listCards}
-      </div>
+      <Collapse in={open}>
+        <div id="cardSection" className="row">
+          {listCards}
+        </div>
+      </Collapse>
     </div>
   );
 };
