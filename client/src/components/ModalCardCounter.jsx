@@ -44,7 +44,7 @@ const CardCounter = (props) => {
           <p className="col text-center">{props.cardName}</p>
         </div>
         <div className="row">
-          <img src={problemBoys[0].image_uris.normal} className="col" />
+          <img onClick={flipDown} src={problemBoys[0].image_uris.normal} className="col" />
         </div>
         <div className="row">
           <div className="col">Price ${props.cardData.prices.usd ||0}</div>
@@ -95,41 +95,57 @@ const CardCounter = (props) => {
     );
   } else {
     return (
-      <div className="container-fluid">
+<div className="container-fluid">
         <div className="row">
-          <div className="col text-center">{props.cardName}</div>
+          <p className="col text-center">{props.cardName}</p>
         </div>
         <div className="row">
-          <img
-            onClick={flipDown}
-            src={problemBoys[1].image_uris.normal}
-            className="col"
-          />
+          <img onClick={flipDown} src={problemBoys[1].image_uris.normal} className="col" />
         </div>
         <div className="row">
-          <div className="col">
-            Price: ${props.cardData.prices.usd}
-          </div>
-          <div className="col">
-            Foil Price: ${props.cardData.prices.usd_foil}
+          <div className="col">Price ${props.cardData.prices.usd ||0}</div>
+          <div className="col"></div>
+          <div className="col text-center">
+            Foil ${parseFloat(props.cardData.prices.usd_foil ||0)}
           </div>
         </div>
+
         <div className="row m-auto">
-          <button
-            type="button"
-            className="btn btn-danger col"
-            onClick={handleDecrement}
-          >
-            -
-          </button>
+          <div className="row">
+            <button
+              type="button"
+              className="btn btn-danger col"
+              onClick={handleDecrement}
+            >
+              -
+            </button>
+            <button
+              type="button"
+              className="btn btn-success col"
+              onClick={handleIncrement}
+            >
+              +
+            </button>
+          </div>
+
           <h3 className="col text-center">{count}</h3>
-          <button
-            type="button"
-            className="btn btn-success col"
-            onClick={handleIncrement}
-          >
-            +
-          </button>
+
+          <div className="row">
+            <button
+              type="button"
+              className="btn btn-danger col"
+              onClick={handleFoilDecrement}
+            >
+              -
+            </button>
+            <button
+              type="button"
+              className="btn btn-success col"
+              onClick={handleFoilIncrement}
+            >
+              +
+            </button>
+          </div>
         </div>
       </div>
     );
