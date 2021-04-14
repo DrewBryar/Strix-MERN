@@ -38,6 +38,9 @@ const CardCounter = (props) => {
           <div className="col">
             Price: ${props.cardData.prices.usd}
           </div>
+          <div className="col">
+            Foil Price: ${props.cardData.prices.usd_foil}
+          </div>
         </div>
         <div className="row m-auto">
           <button
@@ -74,6 +77,9 @@ const CardCounter = (props) => {
         <div className="row">
           <div className="col">
             Price: ${props.cardData.prices.usd}
+          </div>
+          <div className="col">
+            Foil Price: ${props.cardData.prices.usd_foil}
           </div>
         </div>
         <div className="row m-auto">

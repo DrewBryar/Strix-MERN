@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 const CardCounter = (props) => {
   const [count, setCount] = useState(0);
-  const [cardSide, setCardSide] = useState(true);
   const imageUris = props.cardData.image_uris;
+  
   const handleDecrement = () => {
     setCount((prevCount) => prevCount - 1);
   };
@@ -11,14 +11,9 @@ const CardCounter = (props) => {
     setCount((prevCount) => prevCount + 1);
     props.changePriceFunction(props.cardData.prices.usd);
   };
-
-  const flipDown = (e) => {
-    console.log("FLIP DOWN")
-    setCardSide(!cardSide);
-  };
-  const flipUp = () => {
-    console.log("FLIP UP")
-    setCardSide(true);
+  const handleFoilIncrement = () => {
+    setCount((prevCount) => prevCount + 1);
+    props.changePriceFunction(props.cardData.prices.usd_foil);
   };
 
   if (imageUris) {
@@ -31,10 +26,10 @@ const CardCounter = (props) => {
           <img src={imageUris.normal} className="col" />
         </div>
         <div className="row">
-          <div className="col">
-            Price: ${props.cardData.prices.usd}
-          </div>
+          <div className="col">Price: ${props.cardData.prices.usd}</div>
+          <div className="col">Foil Price: ${props.cardData.prices.usd_foil}</div>
         </div>
+        
         <div className="row m-auto">
           <button
             type="button"
@@ -52,12 +47,21 @@ const CardCounter = (props) => {
             +
           </button>
         </div>
+
+        <div className="row m-auto">
+          <button
+            type="button"
+            className="btn btn-info col"
+            onClick={handleFoilIncrement}
+          >
+            Foil
+          </button>
+
+        </div>
       </div>
     );
   } else {
-    return(
-      <div className="col-0 invisible"></div>
-    );
+    return <div className="col-0 invisible"></div>;
   }
 };
 
