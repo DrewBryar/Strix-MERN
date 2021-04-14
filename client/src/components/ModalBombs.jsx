@@ -14,9 +14,11 @@ const ModalBombs = (props) => {
     });
   }, []);
 
+  const changeTotalPrice = props.changePriceFunction
+
   const listCards = cards.map((card) => (
     <div className="col-3">
-      <ModalCardCounter cardData={card} cardName={card.name} />
+      <ModalCardCounter cardData={card} cardName={card.name} changePriceFunction={changeTotalPrice} />
     </div>
   ));
 
