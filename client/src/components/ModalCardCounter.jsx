@@ -71,6 +71,11 @@ const CardCounter = (props) => {
             className="col"
           />
         </div>
+        <div className="row">
+          <div className="col">
+            Price: ${props.cardData.prices.usd}
+          </div>
+        </div>
         <div className="row m-auto">
           <button
             type="button"
