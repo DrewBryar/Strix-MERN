@@ -4,8 +4,11 @@ import ModalCardCounter from "./ModalCardCounter";
 import { Collapse } from "react-bootstrap";
 
 const ModalBombs = (props) => {
+  // API Abbreviation
   const apiModalBombs =
     "http://api.scryfall.com/cards/search?q=is%3Adouble-faced+set%3Astx&unique=cards&as=grid&order=name";
+  
+  // Setting State
   const [cards, setCards] = useState([]);
   const [open, setOpen] = useState(false);
 
@@ -16,8 +19,8 @@ const ModalBombs = (props) => {
     });
   }, []);
 
+  // Functions
   const changeTotalPrice = props.changePriceFunction;
-
   const listCards = cards.map((card) => (
     <div className="col-4">
       <ModalCardCounter
