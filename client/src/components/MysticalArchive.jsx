@@ -1,29 +1,26 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import ModalCardCounter from "./ModalCardCounter";
+import CardCounter from "./CardCounter";
 import { Collapse } from "react-bootstrap";
 
-const ModalBombs = (props) => {
-  // API Abbreviation
-  const apiModalBombs =
-    "http://api.scryfall.com/cards/search?q=is%3Adouble-faced+set%3Astx&unique=cards&as=grid&order=name";
-  
-  // Setting State
+const MysicalArchive = (props) => {
+  const apiMysicalArchive =
+    "https://api.scryfall.com/cards/search?as=grid&order=name&q=set%3Asta+lang%3Aen";
+
   const [cards, setCards] = useState([]);
   const [open, setOpen] = useState(false);
 
-  // API call
   useEffect(() => {
-    axios.get(apiModalBombs).then((res) => {
+    axios.get(apiMysicalArchive).then((res) => {
       setCards(res.data.data);
     });
   }, []);
 
-  // Functions
   const changeTotalPrice = props.changePriceFunction;
+
   const listCards = cards.map((card) => (
     <div className="col-4">
-      <ModalCardCounter
+      <CardCounter
         cardData={card}
         cardName={card.name}
         changePriceFunction={changeTotalPrice}
@@ -54,4 +51,4 @@ const ModalBombs = (props) => {
   );
 };
 
-export default ModalBombs;
+export default MysicalArchive;

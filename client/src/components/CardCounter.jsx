@@ -6,7 +6,7 @@ const CardCounter = (props) => {
 
   const handleDecrement = () => {
     setCount((prevCount) => prevCount - 1);
-    props.changePriceFunction("-"+props.cardData.prices.usd );
+    props.changePriceFunction("-" + props.cardData.prices.usd);
   };
   const handleIncrement = () => {
     setCount((prevCount) => prevCount + 1);
@@ -14,19 +14,17 @@ const CardCounter = (props) => {
   };
   const handleFoilIncrement = () => {
     setCount((prevCount) => prevCount + 1);
-    if(props.cardData.prices.usd_foil){
+    if (props.cardData.prices.usd_foil) {
       props.changePriceFunction(props.cardData.prices.usd_foil);
-    } else{
+    } else {
       props.changePriceFunction("0");
     }
-    
   };
   const handleFoilDecrement = () => {
     setCount((prevCount) => prevCount - 1);
-    props.changePriceFunction("-"+props.cardData.prices.usd_foil );
+    props.changePriceFunction("-" + props.cardData.prices.usd_foil);
     // This was really cute ^^^
   };
-
 
   if (imageUris) {
     return (
@@ -38,10 +36,12 @@ const CardCounter = (props) => {
           <img src={imageUris.normal} className="col" />
         </div>
         <div className="row">
-          <div className="col">Price ${parseFloat(props.cardData.prices.usd ||0)}</div>
+          <div className="col">
+            Price ${parseFloat(props.cardData.prices.usd || 0)}
+          </div>
           <div className="col"></div>
           <div className="col text-center">
-            Foil ${parseFloat(props.cardData.prices.usd_foil ||0)}
+            Foil ${parseFloat(props.cardData.prices.usd_foil || 0)}
           </div>
         </div>
 

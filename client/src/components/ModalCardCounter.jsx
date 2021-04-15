@@ -7,7 +7,7 @@ const CardCounter = (props) => {
 
   const handleDecrement = () => {
     setCount((prevCount) => prevCount - 1);
-    props.changePriceFunction("-"+props.cardData.prices.usd );
+    props.changePriceFunction("-" + props.cardData.prices.usd);
   };
   const handleIncrement = () => {
     setCount((prevCount) => prevCount + 1);
@@ -15,16 +15,15 @@ const CardCounter = (props) => {
   };
   const handleFoilIncrement = () => {
     setCount((prevCount) => prevCount + 1);
-    if(props.cardData.prices.usd_foil){
+    if (props.cardData.prices.usd_foil) {
       props.changePriceFunction(props.cardData.prices.usd_foil);
-    } else{
+    } else {
       props.changePriceFunction("0");
     }
-    
   };
   const handleFoilDecrement = () => {
     setCount((prevCount) => prevCount - 1);
-    props.changePriceFunction("-"+props.cardData.prices.usd_foil );
+    props.changePriceFunction("-" + props.cardData.prices.usd_foil);
     // This was really cute ^^^
   };
 
@@ -44,13 +43,17 @@ const CardCounter = (props) => {
           <p className="col text-center">{props.cardName}</p>
         </div>
         <div className="row">
-          <img onClick={flipDown} src={problemBoys[0].image_uris.normal} className="col" />
+          <img
+            onClick={flipDown}
+            src={problemBoys[0].image_uris.normal}
+            className="col"
+          />
         </div>
         <div className="row">
-          <div className="col">Price ${props.cardData.prices.usd ||0}</div>
+          <div className="col">Price ${props.cardData.prices.usd || 0}</div>
           <div className="col"></div>
           <div className="col text-center">
-            Foil ${parseFloat(props.cardData.prices.usd_foil ||0)}
+            Foil ${parseFloat(props.cardData.prices.usd_foil || 0)}
           </div>
         </div>
 
@@ -95,18 +98,22 @@ const CardCounter = (props) => {
     );
   } else {
     return (
-<div className="container-fluid">
+      <div className="container-fluid">
         <div className="row">
           <p className="col text-center">{props.cardName}</p>
         </div>
         <div className="row">
-          <img onClick={flipDown} src={problemBoys[1].image_uris.normal} className="col" />
+          <img
+            onClick={flipDown}
+            src={problemBoys[1].image_uris.normal}
+            className="col"
+          />
         </div>
         <div className="row">
-          <div className="col">Price ${props.cardData.prices.usd ||0}</div>
+          <div className="col">Price ${props.cardData.prices.usd || 0}</div>
           <div className="col"></div>
           <div className="col text-center">
-            Foil ${parseFloat(props.cardData.prices.usd_foil ||0)}
+            Foil ${parseFloat(props.cardData.prices.usd_foil || 0)}
           </div>
         </div>
 
